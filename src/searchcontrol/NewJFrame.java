@@ -57,9 +57,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
     public void initializeCode() {
         Helper helper = new Helper();
-        Hashtable<String, String> env = helper.ldapConnect("ldap://mv3wcddc01prv.smrc.sidra.org:389/DC=smrc,DC=sidra,DC=org",
-                "simple", "CN=Samir Awad,OU=Tower D,OU=Mall,OU=Hospital Building,OU=Users,OU=Healthcare,OU=SMRC Business Units,DC=smrc,DC=sidra,DC=org",
-                "shadOw!123");
+        Hashtable<String, String> env = helper.ldapConnect("ldap://domain:389/DC=aaa,DC=sss,DC=ddd",
+                "simple", "CN=first last,OU=aaaaa s,OU=aaaa,OU=dddd,OU=ffff,OU=gggg,OU=hhhhh,DC=smrc,DC=ddddd,DC=ssss",
+                "password");
 
         DirContext context = null;
         try {
@@ -74,11 +74,10 @@ public class NewJFrame extends javax.swing.JFrame {
 
         SearchControls searchControls = new SearchControls();
         Attributes attributes = new BasicAttributes();
-//        attributes.put(new BasicAttribute("sn", "aWad"));
         String filter = "(&(sn=*)(sAMAccountName=" + username + "))";
         searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
         try {
-            NamingEnumeration<SearchResult> answer = context.search("OU=SMRC Business Units",
+            NamingEnumeration<SearchResult> answer = context.search("OU=aaassss",
                     filter, searchControls);
             while (answer.hasMoreElements()) {
                 SearchResult searchResult = answer.next();
@@ -463,9 +462,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private void fetchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fetchButtonActionPerformed
         flushData();
         Helper helper = new Helper();
-        Hashtable<String, String> env = helper.ldapConnect("ldap://mv3wcddc01prv.smrc.sidra.org:389/DC=smrc,DC=sidra,DC=org",
-                "simple", "CN=Samir Awad,OU=Tower D,OU=Mall,OU=Hospital Building,OU=Users,OU=Healthcare,OU=SMRC Business Units,DC=smrc,DC=sidra,DC=org",
-                "shadOw!123");
+        Hashtable<String, String> env = helper.ldapConnect("ldap://mydomain.com:389/DC=jjjj,DC=fdd,DC=aaa",
+                "simple", "CN=first last,OU=asdasd,OU=aaaaa,OU=ssss,OU=Users,OU=sdddd,OU=fffff,DC=smrc,DC=dddd,DC=ssss",
+                "password");
 
         DirContext context = null;
         try {
@@ -484,7 +483,7 @@ public class NewJFrame extends javax.swing.JFrame {
         searchControls.setSearchScope(SearchControls.SUBTREE_SCOPE);
         today = new SimpleDateFormat("dd/MM/yyyy").format(new Date());
         try {
-            NamingEnumeration<SearchResult> answer = context.search("OU=SMRC Business Units",
+            NamingEnumeration<SearchResult> answer = context.search("OU=dfdfgd",
                     filter, searchControls);
             while (answer.hasMoreElements()) {
                 SearchResult searchResult = answer.next();
@@ -504,7 +503,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     String nameFilter = "(&(sn=*)(cn=" + manager + "))";
                     SearchControls sControls = new SearchControls();
                     sControls.setSearchScope(sControls.SUBTREE_SCOPE);
-                    NamingEnumeration<SearchResult> naming = context.search("OU=SMRC Business Units",
+                    NamingEnumeration<SearchResult> naming = context.search("OU=hgfhfghfd",
                             nameFilter, sControls);
                     while (naming.hasMoreElements()) {
                         SearchResult sResult = naming.next();
@@ -535,7 +534,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void genrateFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_genrateFormActionPerformed
         System.setProperty("sun.java2d.cmm", "sun.java2d.cmm.kcms.KcmsServiceProvider");
-        try (PDDocument doc = PDDocument.load(new File("c:\\data\\IT Movable AsseT Form-V1.pdf"))) {
+        try (PDDocument doc = PDDocument.load(new File("filepath"))) {
             PDAcroForm acroForm = doc.getDocumentCatalog().getAcroForm();
             PDResources formResources = acroForm.getDefaultResources();
             PDType0Font font = PDType0Font.load(doc, new File("C:\\data\\arial.ttf"));
@@ -568,11 +567,11 @@ public class NewJFrame extends javax.swing.JFrame {
 //        formField.setValue(new StringBuilder(new ArabicShaping(ArabicShaping.LETTERS_SHAPE_TASHKEEL_ISOLATED).shape(s)).reverse().toString());
 //        formField.setDefaultAppearance("/Helv 0 Tf 0 g");
             System.out.println(requester.replace(" ", "_"));
-            doc.save("c:\\data\\ " + requester.replace(" ", "_") + "_IT_Movable_AsseT.pdf");
+            doc.save("c:\\data\\ " + requester.replace(" ", "_") + "asset.pdf");
         } catch (IOException ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
-        filename.setText("c:\\data\\ " + requester.replace(" ", "_") + "_IT_Movable_AsseT.pdf");
+        filename.setText("c:\\data\\ " + requester.replace(" ", "_") + "asset.pdf");
 
     }//GEN-LAST:event_genrateFormActionPerformed
 
