@@ -6,9 +6,9 @@ import util.ActiveDirectoryAuthentication;
 public class NewClass {
 
     public static void main(String[] args) {
-        ActiveDirectoryAuthentication authentication = new ActiveDirectoryAuthentication("smrc.sidra.org");
+        ActiveDirectoryAuthentication authentication = new ActiveDirectoryAuthentication("mydomain.com");
         try {
-            boolean authResult = authentication.authenticate("sawad2", "shadOw!123");
+            boolean authResult = authentication.authenticate("user", "password");
             System.out.print("Auth: " + authResult);
         } catch (LoginException e) {
             System.out.println(e.getMessage());
